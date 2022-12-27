@@ -31,8 +31,11 @@ export default function Home() {
           validate={({ phone }) => {
             const errors: Record<string, string> = {};
 
-            if (!phone?.match(/07[0-9]{8}/g)) {
-              errors.phone = `Numarul de telefon nu-i ok. Baga-l in formatul 07xxxxxxxx.`;
+            if (
+              !phone?.match(/07[0-9]{8}/g) &&
+              !phone?.match(/0043[0-9]{10}/g)
+            ) {
+              errors.phone = `Numarul de telefon nu-i ok. Baga-l in formatul 07xxxxxxxx sau 0043xxxxxxxxxx.`;
             }
 
             return errors;
@@ -47,7 +50,7 @@ export default function Home() {
               <Field
                 type="text"
                 inputMode="numeric"
-                placeholder="07xxxxxxxx"
+                placeholder="07xxxxxxxx / 0043xxxxxxxxxx"
                 className="input border border-1 border-gray-200 rounded-2xl p-2 focus:border-gray-900 focus:outline-none w-full text-gray-900 dark:text-gray-900"
                 name="phone"
               />

@@ -11,7 +11,6 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect } from 'react';
 import { firestore } from '../../lib/firebase';
-import shirt from '../../public/shirt.png';
 import { MaybeMember, Member } from '../../types';
 
 interface Props {
@@ -48,12 +47,14 @@ export default function Gift({ member }: Props) {
     return (
       <>
         <h1 className="container mx-auto px-5 text-3xl font-bold text-center pt-5">
-          Felicitari {name}!
+          Craciun fericit {name}!
         </h1>
 
         <p className="container mx-auto px-5 pt-10 text-lg">
           Cadou ii{' '}
-          <a className="underline cursor-pointer" href={url}>
+          <a
+            className="underline cursor-pointer text-bold text-xl uppercase"
+            href={url}>
             acest
           </a>{' '}
           tricou de pe{' '}
@@ -66,7 +67,7 @@ export default function Gift({ member }: Props) {
         </p>
 
         <Image
-          src={shirt}
+          src={require(`public/${name.toLowerCase()}.png`)}
           className="container mx-auto px-5 pt-10"
           alt="shirt"
         />
@@ -75,7 +76,37 @@ export default function Gift({ member }: Props) {
   }
 
   function renderNotFound() {
-    return <p>Nush cine esti...</p>;
+    const url = 'https://www.inkspired.ro/the-child-126886.html';
+    const name = 'default';
+    return (
+      <>
+        <h1 className="container mx-auto px-5 text-3xl font-bold text-center pt-5">
+          Craciun fericit!
+        </h1>
+
+        <p className="container mx-auto px-5 pt-10 text-lg">
+          Cadou ii{' '}
+          <a
+            className="underline cursor-pointer text-bold text-xl uppercase"
+            href={url}>
+            acest
+          </a>{' '}
+          tricou de pe{' '}
+          <a className="underline cursor-pointer" href="https://inkspired.ro">
+            inkspired
+          </a>
+          . Sper ca-ti place!
+          <br />
+          Daca nu, poti sa-ti iei altceva.
+        </p>
+
+        <Image
+          src={require(`public/${name.toLowerCase()}.png`)}
+          className="container mx-auto px-5 pt-10"
+          alt="shirt"
+        />
+      </>
+    );
   }
 }
 
