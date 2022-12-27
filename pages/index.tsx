@@ -2,6 +2,7 @@ import { doc, setDoc } from '@firebase/firestore';
 import { Field, Formik } from 'formik';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import Snowfall from 'react-snowfall';
 import { firestore } from '../lib/firebase';
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Snowfall snowflakeCount={75} />
       <main className="h-screen relative">
         <h1 className="container mx-auto px-5 text-3xl font-bold text-center pt-5">
           Ho-Ho-Ho

@@ -10,6 +10,7 @@ import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect } from 'react';
+import Snowfall from 'react-snowfall';
 import { firestore } from '../../lib/firebase';
 import { MaybeMember, Member } from '../../types';
 
@@ -37,6 +38,7 @@ export default function Gift({ member }: Props) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Snowfall snowflakeCount={75} />
       <main className="h-screen overflow-y-scroll">
         {member.status === 'found' ? renderFound(member) : renderNotFound()}
       </main>
