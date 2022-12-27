@@ -1,0 +1,4 @@
+{
+  "prettier.configPath": ".prettierrc.json",
+  "task.allowAutomaticTasks": "on"
+}
