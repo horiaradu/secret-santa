@@ -1,15 +1,35 @@
+import {
+  collection,
+  doc,
+  getDocs,
+  query,
+  setDoc,
+  where,
+} from '@firebase/firestore';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import { useEffect } from 'react';
+import { firestore } from '../../lib/firebase';
 import shirt from '../../public/shirt.png';
+import { MaybeMember, Member } from '../../types';
 
 interface Props {
-  phone: string;
-  name: string;
-  url: string;
+  member: MaybeMember;
 }
 
-export default function Gift({ phone, name, url }: Props) {
+export default function Gift({ member }: Props) {
+  useEffect(() => {
+    if (member.phone) {
+      const timestamp = Date.now().toString();
+      const document = doc(firestore, `accessed/${timestamp}`);
+      const data = {
+        phone: member.phone,
+      };
+      setDoc(document, data);
+    }
+  }, [member.phone]);
+
   return (
     <>
       <Head>
@@ -18,7 +38,15 @@ export default function Gift({ phone, name, url }: Props) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="h-screen relative overflow-y-scroll">
+      <main className="h-screen overflow-y-scroll">
+        {member.status === 'found' ? renderFound(member) : renderNotFound()}
+      </main>
+    </>
+  );
+
+  function renderFound({ name, url }: Member) {
+    return (
+      <>
         <h1 className="container mx-auto px-5 text-3xl font-bold text-center pt-5">
           Felicitari {name}!
         </h1>
@@ -42,18 +70,45 @@ export default function Gift({ phone, name, url }: Props) {
           className="container mx-auto px-5 pt-10"
           alt="shirt"
         />
-      </main>
-    </>
-  );
+      </>
+    );
+  }
+
+  function renderNotFound() {
+    return <p>Nush cine esti...</p>;
+  }
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { phone } = context.query;
+export const getServerSideProps: GetServerSideProps<Props> = async (
+  context,
+) => {
+  const { phone } = context.query as { phone: string };
+
+  const members = collection(firestore, 'members');
+  const memberQuery = query(members, where('phone', '==', phone));
+  const found = await getDocs(memberQuery);
+
+  if (found.empty) {
+    return {
+      props: {
+        member: {
+          status: 'not-found',
+          phone,
+        },
+      },
+    };
+  }
+
+  const { name, url } = found.docs[0].data();
+
   return {
     props: {
-      phone,
-      name: 'Horia',
-      url: 'https://www.inkspired.ro/santa-claws-ugly-sweater-by-tobe-fonseca.html',
+      member: {
+        status: 'found',
+        phone,
+        name,
+        url,
+      },
     },
   };
 };

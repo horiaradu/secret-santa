@@ -1,6 +1,8 @@
+import { doc, setDoc } from '@firebase/firestore';
 import { Field, Formik } from 'formik';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { firestore } from '../lib/firebase';
 
 export default function Home() {
   const router = useRouter();
@@ -35,11 +37,10 @@ export default function Home() {
 
             return errors;
           }}
-          onSubmit={(values, { setSubmitting }) => {
+          onSubmit={(values) => {
             router.push(`/gift/${values.phone}`);
-            setSubmitting(false);
           }}>
-          {({ errors, handleSubmit }) => (
+          {({ errors, handleSubmit, isSubmitting }) => (
             <form
               onSubmit={handleSubmit}
               className="container mx-auto px-5 pt-10">
@@ -55,6 +56,7 @@ export default function Home() {
               )}
 
               <button
+                disabled={isSubmitting}
                 type="submit"
                 className="absolute bottom-0 left-0 rounded-lg bg-emerald-500 w-full text-gray-900 dark:text-gray-900 font-bold text-xl p-4 uppercase">
                 Vreau cadou
