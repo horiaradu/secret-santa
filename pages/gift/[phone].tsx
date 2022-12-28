@@ -39,7 +39,7 @@ export default function Gift({ member }: Props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Snowfall snowflakeCount={75} />
-      <main className="h-screen overflow-y-scroll relative">
+      <main className="h-screen overflow-y-scroll relative pb-20">
         {member.status === 'found' ? renderFound(member) : renderNotFound()}
       </main>
     </>
@@ -53,10 +53,15 @@ export default function Gift({ member }: Props) {
         </h1>
 
         <p className="container mx-auto px-5 pt-10 text-lg">
-          Ai castigat oportunitatea de a iti cumpara singura cadoul pe care eu
-          ti l-am ales. Sau de a iti lua complet altceva, desi asta incalca un
+          Ai castigat oportunitatea de a-ti cumpara singur(a) cadoul pe care eu
+          ti l-am ales. Sau de a-ti lua complet altceva, desi asta incalca un
           pic regulile acestui joc. Dar hei, poti zice ca si eu le-am incalcat
           putin...
+        </p>
+
+        <p className="container mx-auto px-5 pt-10 text-lg">
+          In timp ce citesti aceste randuri, Mos Craciun iti face deja transfer
+          pe Revolut. Daca nu ai Revolut, atunci o sa iti dea pe ING-ul.
         </p>
 
         <Image

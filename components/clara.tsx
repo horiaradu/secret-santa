@@ -40,7 +40,7 @@ export default function Clara() {
       </p>
 
       <iframe
-        className="pt-5 pb-10"
+        className="pt-5"
         height="315"
         src="https://www.youtube.com/embed/Zh2K7SxRHmo"
         title="YouTube video player"

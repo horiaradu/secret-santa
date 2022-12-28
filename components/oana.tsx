@@ -2,20 +2,12 @@ export default function Berlo() {
   return (
     <div className="container mx-auto px-5 flex flex-col gap-2 pt-5">
       <p>
-        Descend into the world of Hollow Knight! The award winning action
-        adventure of insects and heroes. Explore twisting caverns, ancient
-        cities and deadly wastes. Battle tainted creatures and befriend bizarre
-        bugs. Uncover ancient history and solve the mysteries buried at the
-        kingdom&apos;s heart.
+        Pentru ca esti foarte speciala pentru cel care a facut acest cadou, ai
+        primit o experienta unica. Multi ar ucide pentru oportunitatea de rade
+        de Horia cum incearca sa stea in echilibru, gratios, ca o gazela.
       </p>
-
-      <iframe
-        className="pt-5 pb-10"
-        height="315"
-        src="https://www.youtube.com/embed/qqEpSOFDXGA"
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen></iframe>
+      <p>In colanti. Da! Exact!</p>
+      <p>Daca vei veni, el va veni in colanti. Nu vrei sa ratezi asa ceva!</p>
     </div>
   );
 }

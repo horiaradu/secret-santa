@@ -26,7 +26,7 @@ export default function Garo() {
       <p>The detective decides - the citizens abide.</p>
 
       <iframe
-        className="pt-5 pb-10"
+        className="pt-5"
         height="315"
         src="https://www.youtube.com/embed/YV2lp6p_gXw"
         title="YouTube video player"

@@ -34,7 +34,7 @@ export default function Posto() {
       </p>
 
       <iframe
-        className="pt-5 pb-10"
+        className="pt-5"
         height="315"
         src="https://www.youtube.com/embed/ctX3jVORkkk"
         title="YouTube video player"

@@ -36,7 +36,7 @@ export default function Berlo() {
       </ul>
 
       <iframe
-        className="pt-5 pb-10"
+        className="pt-5"
         height="315"
         src="https://www.youtube.com/embed/UAO2urG23S4"
         title="YouTube video player"
