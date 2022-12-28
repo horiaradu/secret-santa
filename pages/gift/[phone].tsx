@@ -105,11 +105,17 @@ export default function Gift({ member }: Props) {
           Cadou ii{' '}
           <a
             className="underline cursor-pointer text-bold text-xl uppercase"
-            href={url}>
+            href={url}
+            target="_blank"
+            rel="noreferrer">
             acest
           </a>{' '}
           tricou de pe{' '}
-          <a className="underline cursor-pointer" href="https://inkspired.ro">
+          <a
+            className="underline cursor-pointer"
+            href="https://inkspired.ro"
+            target="_blank"
+            rel="noreferrer">
             inkspired
           </a>
           . Sper ca-ti place!

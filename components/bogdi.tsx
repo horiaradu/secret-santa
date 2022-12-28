@@ -10,7 +10,9 @@ export default function Bogdi() {
         luni la{' '}
         <a
           className="underline cursor-pointer text-bold text-xl uppercase"
-          href="https://www.chess.com/lessons">
+          href="https://www.chess.com/lessons"
+          target="_blank"
+          rel="noreferrer">
           Chess.com
         </a>
         . Acolo poti juca online sah (mai multe feluri, pe timp, blitz, etc.),
