@@ -7,10 +7,15 @@ export default function Bogdi() {
       <p>
         Anu asta nu am mers la cabana, deci nu ai apucat sa-ti antrenezi
         skill-urile de sah, asa ca mai primesti cadou un abonament pe cateva
-        luni la <a href="https://www.chess.com/lessons">Chess.com</a>. Acolo
-        poti juca online sah (mai multe feluri, pe timp, blitz, etc.), dar au si
-        lectii de tactica si de deschideri. Poate inlocuiesti scrollingu cu sahu
-        :P.
+        luni la{' '}
+        <a
+          className="underline cursor-pointer text-bold text-xl uppercase"
+          href="https://www.chess.com/lessons">
+          Chess.com
+        </a>
+        . Acolo poti juca online sah (mai multe feluri, pe timp, blitz, etc.),
+        dar au si lectii de tactica si de deschideri. Poate inlocuiesti
+        scrollingu cu sahu :P.
       </p>
 
       <Image src={require(`public/bogdi2.png`)} alt="shirt" />
