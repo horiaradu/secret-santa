@@ -63,7 +63,7 @@ export default function Home() {
               <button
                 disabled={isSubmitting}
                 type="submit"
-                className="absolute bottom-0 left-0 rounded-lg bg-emerald-500 w-full text-gray-900 dark:text-gray-900 font-bold text-xl p-4 uppercase">
+                className="fixed bottom-0 left-0 rounded-lg bg-emerald-500 w-full text-gray-900 dark:text-gray-900 font-bold text-xl p-4 uppercase">
                 Vreau cadou
               </button>
             </form>

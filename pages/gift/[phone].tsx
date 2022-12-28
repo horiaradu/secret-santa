@@ -9,7 +9,7 @@ import {
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import Snowfall from 'react-snowfall';
 import { firestore } from '../../lib/firebase';
 import { MaybeMember, Member } from '../../types';
@@ -39,7 +39,7 @@ export default function Gift({ member }: Props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Snowfall snowflakeCount={75} />
-      <main className="h-screen overflow-y-scroll">
+      <main className="h-screen overflow-y-scroll relative">
         {member.status === 'found' ? renderFound(member) : renderNotFound()}
       </main>
     </>
@@ -53,19 +53,10 @@ export default function Gift({ member }: Props) {
         </h1>
 
         <p className="container mx-auto px-5 pt-10 text-lg">
-          Cadou ii{' '}
-          <a
-            className="underline cursor-pointer text-bold text-xl uppercase"
-            href={url}>
-            acest
-          </a>{' '}
-          tricou de pe{' '}
-          <a className="underline cursor-pointer" href="https://inkspired.ro">
-            inkspired
-          </a>
-          . Sper ca-ti place!
-          <br />
-          Daca nu, poti sa-ti iei altceva.
+          Ai castigat oportunitatea de a iti cumpara singura cadoul pe care eu
+          ti l-am ales. Sau de a iti lua complet altceva, desi asta incalca un
+          pic regulile acestui joc. Dar hei, poti zice ca si eu le-am incalcat
+          putin...
         </p>
 
         <Image
@@ -73,7 +64,26 @@ export default function Gift({ member }: Props) {
           className="container mx-auto px-5 pt-10"
           alt="shirt"
         />
+
+        {renderDetails(name)}
+
+        <button
+          onClick={() => window.open(url, '_blank')}
+          className="fixed bottom-0 left-0 rounded-lg bg-emerald-500 w-screen text-gray-900 dark:text-gray-900 text-center font-bold text-xl p-4 uppercase">
+          CUMPARA
+        </button>
       </>
+    );
+  }
+
+  function renderDetails(name: string): JSX.Element | null {
+    const MyComponent = lazy(() => {
+      return import(`../../components/${name.toLowerCase()}`);
+    });
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <MyComponent />
+      </Suspense>
     );
   }
 
