@@ -45,12 +45,17 @@ export default function Gift({ member }: Props) {
     </>
   );
 
-  function renderFound({ name, url }: Member) {
+  function renderFound({ name, url, url2 }: Member) {
     return (
       <>
         <h1 className="container mx-auto px-5 text-3xl font-bold text-center pt-5">
           Craciun fericit {name}!
         </h1>
+
+        <p className="container mx-auto px-5 pt-10 text-lg">
+          Mos Craciun s-a gandit la tine, {name}, si a ales acest cadou special
+          pentru tine!
+        </p>
 
         <p className="container mx-auto px-5 pt-10 text-lg">
           Ai castigat oportunitatea de a-ti cumpara singur(a) cadoul pe care eu
@@ -72,11 +77,28 @@ export default function Gift({ member }: Props) {
 
         {renderDetails(name)}
 
-        <button
-          onClick={() => window.open(url, '_blank')}
-          className="fixed bottom-0 left-0 rounded-lg bg-emerald-500 w-screen text-gray-900 dark:text-gray-900 text-center font-bold text-xl p-4 uppercase">
-          CUMPARA
-        </button>
+        <div className="fixed bottom-0 left-0 w-screen flex flex-row justify-between bg-white dark:bg-slate-800 p-2">
+          {url2?.length ? (
+            <>
+              <button
+                onClick={() => window.open(url, '_blank')}
+                className="rounded-lg bg-emerald-500 text-gray-900 dark:text-gray-900 text-center font-bold text-xl p-4 uppercase">
+                CUMPARA
+              </button>
+              <button
+                onClick={() => window.open(url2, '_blank')}
+                className="rounded-lg bg-emerald-500 text-gray-900 dark:text-gray-900 text-center font-bold text-xl p-4 uppercase">
+                SI MAI CUMPARA
+              </button>
+            </>
+          ) : (
+            <button
+              onClick={() => window.open(url, '_blank')}
+              className="rounded-lg bg-emerald-500 w-full text-gray-900 dark:text-gray-900 text-center font-bold text-xl p-4 uppercase">
+              CUMPARA
+            </button>
+          )}
+        </div>
       </>
     );
   }
@@ -153,7 +175,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
     };
   }
 
-  const { name, url } = found.docs[0].data();
+  const { name, url, url2 = null } = found.docs[0].data();
 
   return {
     props: {
@@ -162,6 +184,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
         phone,
         name,
         url,
+        url2,
       },
     },
   };
