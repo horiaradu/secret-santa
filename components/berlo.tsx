@@ -1,44 +1,37 @@
 export default function Berlo() {
   return (
     <div className="container mx-auto px-5 flex flex-col gap-2 pt-5">
+      <h4 className="text-lg">
+        Defy the god of the dead and escape the Underworld.
+      </h4>
       <p>
-        Descend into the world of Hollow Knight! The award winning action
-        adventure of insects and heroes. Explore twisting caverns, ancient
-        cities and deadly wastes. Battle tainted creatures and befriend bizarre
-        bugs. Uncover ancient history and solve the mysteries buried at the
-        kingdom&apos;s heart.
+        Winner of more than 50 Game of the Year awards, Hades is rogue-like
+        hack-and-slash dungeon crawler, now available for the first time on
+        PlayStation.
       </p>
-      <p>Hollow Knight Voidheart Edition includes:</p>
-      <ul className="list-disc">
-        <li>The original, award winning, action adventure.</li>
-        <li>
-          4 giant Content Packs, built in at launch, expanding the game with all
-          new quests, terrifying boss fights and striking new abilities.
-        </li>
-      </ul>
-      <p>Game Features:</p>
-      <ul className="list-disc">
-        <li>Classic side-scrolling action, with all the modern trimmings.</li>
-        <li>
-          Forge your own path! The world of Hallownest is expansive and open.
-        </li>
-        <li>Evolve with powerful new skills and abilities!</li>
-        <li>
-          Equip Charms! Ancient relics that offer bizarre new powers and
-          abilities.
-        </li>
-        <li>
-          An enormous cast of cute and creepy characters all brought to life
-          with traditional 2D frame-by-frame animation.
-        </li>
-        <li>An epic orchestral score, with over 40 tracks!</li>
-        <li>Over 150 enemies with 40 epic bosses!</li>
-      </ul>
+      <p>
+        Wield the powers and mythic weapons of Olympus to break free from the
+        clutches of the god of the dead himself, while growing stronger and
+        unravelling more of the story with each unique escape attempt.
+      </p>
+      <p>
+        Aided by his extended family - that just so happen to include Zeus,
+        Athena and other gods of Olympus - Zagreus&apos;s efforts are boosted
+        with temporary buffs (known as Boons) that can be selected to suit your
+        playstyle, and permanent upgrades that can be obtained during each
+        play-through.
+      </p>
+      <p>
+        Hades combines the best aspects of Supergiant&apos;s critically
+        acclaimed titles, including the fast-paced action of Bastion, the rich
+        atmosphere and depth of Transistor, and the character-driven
+        storytelling of Pyre.
+      </p>
 
       <iframe
         className="pt-5"
         height="315"
-        src="https://www.youtube.com/embed/UAO2urG23S4"
+        src="https://www.youtube.com/embed/91t0ha9x0AE"
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen></iframe>
